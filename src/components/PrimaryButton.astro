@@ -1,0 +1,25 @@
+﻿---
+interface Props {
+  href: string;
+  size?: 'sm' | 'md';
+  class?: string;
+}
+
+const { href, size = 'md', class: className = '' } = Astro.props;
+
+const sizes = {
+  sm: 'min-h-10 px-5 text-xs',
+  md: 'min-h-12 px-6 text-sm',
+};
+---
+
+<a
+  href={href}
+  class:list={[
+    'inline-flex items-center justify-center gap-2 rounded-full bg-naranja font-bold uppercase tracking-wider text-carbon transition hover:bg-naranja-soft active:scale-[0.98]',
+    sizes[size],
+    className,
+  ]}
+>
+  <slot />
+</a>

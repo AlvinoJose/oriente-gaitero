@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+import '@fontsource/archivo-black';
+import '@fontsource-variable/inter';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyBookingCTA from '../components/StickyBookingCTA.astro';
+
+import profile from '../data/profile.json';
+import site from '../data/site.config.json';
+import { canonicalSocialLinks, isPlaceholder } from '../lib/contact';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  fullBleed?: boolean;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, image = '/og.svg', fullBleed = false, structuredData } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site).href;
+const siteUrl = Astro.site?.href ?? canonical.href;
+
+const baseSchema: Record<string, unknown>[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MusicGroup',
+    '@id': `${siteUrl}#organizacion`,
+    name: profile.name,
+    description,
+    url: canonical.href,
+    image: ogImage,
+    genre: 'Gaita zuliana',
+    sameAs: canonicalSocialLinks(),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${siteUrl}#organizacion`,
+    name: site.brand,
+    url: canonical.href,
+    logo: new URL('/avatar.svg', Astro.site).href,
+    ...(isPlaceholder(site.email) ? {} : { email: site.email }),
+    sameAs: canonicalSocialLinks(),
+  },
+];
+
+const extraSchema = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
+
+const jsonLd = [...baseSchema, ...extraSchema];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.brand} />
+    <meta property="og:locale" content="es_VE" />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="theme-color" content="#111111" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-dvh bg-carbon text-white antialiased">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-naranja focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-carbon"
+    >
+      Saltar al contenido
+    </a>
+
+    <Header />
+
+    <div class:list={['pb-14 lg:pb-0', !fullBleed && 'pt-16']}>
+      <main id="contenido">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+
+    <StickyBookingCTA />
+  </body>
+</html>

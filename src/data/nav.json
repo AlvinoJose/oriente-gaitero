@@ -1,0 +1,6 @@
+[
+  { "href": "/", "label": "Inicio" },
+  { "href": "/show", "label": "Show" },
+  { "href": "/nosotros", "label": "Nosotros" },
+  { "href": "/contacto", "label": "Contacto" }
+]

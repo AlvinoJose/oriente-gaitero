@@ -1,0 +1,38 @@
+[
+  {
+    "id": "privados",
+    "label": "Privados",
+    "description": "Familiares y celebraciones íntimas.",
+    "image": "/media/placeholder.svg"
+  },
+  {
+    "id": "corporativos",
+    "label": "Corporativos",
+    "description": "Empresas, cenas y activaciones de marca.",
+    "image": "/media/placeholder.svg"
+  },
+  {
+    "id": "festivales",
+    "label": "Festivales",
+    "description": "Escenarios grandes y eventos abiertos.",
+    "image": "/media/placeholder.svg"
+  },
+  {
+    "id": "navidad",
+    "label": "Navidad",
+    "description": "Temporada decembrina y villancicos en vivo.",
+    "image": "/media/placeholder.svg"
+  },
+  {
+    "id": "restaurantes-hoteles",
+    "label": "Restaurantes / Hoteles",
+    "description": "Animación en vivo para su audiencia.",
+    "image": "/media/placeholder.svg"
+  },
+  {
+    "id": "institucionales",
+    "label": "Institucionales",
+    "description": "Instituciones, universidades y organización pública.",
+    "image": "/media/placeholder.svg"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "_todo": "TODO (specs/specs.md §1, §8): las URLs son EJEMPLO hasta que la agrupación confirme sus perfiles oficiales. Cada entrada tiene pending: true mientras tanto. El WhatsApp NO se define aquí: su URL se genera desde site.config.json (whatsapp.number).",
+  "items": [
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/",
+      "icon": "instagram",
+      "pending": true
+    },
+    { "label": "TikTok", "url": "https://www.tiktok.com/", "icon": "tiktok", "pending": true },
+    { "label": "YouTube", "url": "https://www.youtube.com/", "icon": "youtube", "pending": true },
+    { "label": "WhatsApp", "url": "", "icon": "whatsapp" }
+  ]
+}

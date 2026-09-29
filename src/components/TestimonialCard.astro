@@ -1,0 +1,30 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  role: string;
+  pending?: boolean;
+}
+
+const { quote, author, role, pending = false } = Astro.props;
+---
+
+<figure
+  class="flex h-full flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+>
+  <blockquote class="text-base leading-relaxed text-white/80">
+    <span class="mr-1 font-display text-naranja" aria-hidden="true">“</span>
+    {quote}
+  </blockquote>
+  <figcaption class="text-sm">
+    <span class="block font-semibold text-white">{author}</span>
+    <span class="block text-white/50">{role}</span>
+    {
+      pending && (
+        <span class="mt-2 inline-block rounded bg-naranja/20 px-2 py-0.5 text-[10px] font-semibold uppercase text-naranja-soft">
+          [PENDIENTE] testimonio autorizado
+        </span>
+      )
+    }
+  </figcaption>
+</figure>

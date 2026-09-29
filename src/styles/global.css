@@ -1,0 +1,112 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Paleta oficial (specs/specs.md §5) */
+  --color-carbon: #111111;
+  --color-carbon-soft: #1a1a1a;
+  --color-naranja: #f47b16;
+  --color-naranja-soft: #ffa14d;
+  --color-turquesa: #08a9cc;
+  --color-turquesa-soft: #4ec9e3;
+  --color-marron: #4a2113;
+  --color-marron-soft: #6b3520;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Archivo Black', 'Arial Black', ui-sans-serif, system-ui, sans-serif;
+
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 390px;
+  --breakpoint-md: 430px;
+  --breakpoint-lg: 768px;
+  --breakpoint-xl: 1024px;
+  --breakpoint-2xl: 1280px;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-carbon);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-turquesa-soft);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* Header transparente al inicio y compacto al hacer scroll (specs §8) */
+  [data-header] {
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  [data-header] > div {
+    transition: height 0.2s ease;
+  }
+
+  [data-header].header-compact {
+    background-color: rgb(17 17 17 / 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom-color: rgb(255 255 255 / 0.1);
+  }
+
+  [data-header].header-compact > div {
+    height: 3.5rem;
+  }
+
+  /* Filtros de galería (sin JS en las clases) */
+  .gallery-filter {
+    min-height: 2.5rem;
+    padding-inline: 1rem;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgb(255 255 255 / 0.7);
+    transition: all 0.15s ease;
+  }
+
+  .gallery-filter:hover {
+    border-color: var(--color-naranja);
+    color: #ffffff;
+  }
+
+  .gallery-filter[aria-pressed='true'] {
+    background-color: var(--color-naranja);
+    border-color: var(--color-naranja);
+    color: var(--color-carbon);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

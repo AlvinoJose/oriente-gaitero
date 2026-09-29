@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  highlights: string[];
+}
+
+const { title, description, highlights } = Astro.props;
+---
+
+<article class="flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-turquesa/50">
+  <h3 class="text-lg leading-tight text-naranja">{title}</h3>
+  <p class="text-sm text-white/70">{description}</p>
+  <ul class="mt-auto flex flex-col gap-1.5 border-t border-white/10 pt-4 text-xs text-white/50">
+    {
+      highlights.map((highlight) => (
+        <li class="flex items-start gap-2">
+          <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-turquesa" aria-hidden="true" />
+          {highlight}
+        </li>
+      ))
+    }
+  </ul>
+</article>

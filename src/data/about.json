@@ -1,0 +1,13 @@
+{
+  "_todo": "TODO (specs/specs.md §12): headline e intro tomados del prototipo. history/purpose/vision siguen pendientes de redactar con la agrupación.",
+  "headline": "Tres amigos, una pasión y un propósito.",
+  "intro": "Oriente Gaitero nace de la amistad y el amor por la gaita zuliana, con la visión de llevar un espectáculo musical de calidad y convertirnos en un referente de la gaita en el Oriente venezolano.",
+  "history": "[PENDIENTE] Historia breve de cómo nació Oriente Gaitero.",
+  "purpose": "[PENDIENTE] Propósito: por qué hacen música y qué buscan transmitir.",
+  "vision": "[PENDIENTE] Visión: a dónde quieren llegar con el proyecto.",
+  "pillars": [
+    { "label": "Nuestra misión", "icon": "music" },
+    { "label": "Nuestra visión", "icon": "star" },
+    { "label": "Nuestra propuesta", "icon": "users" }
+  ]
+}

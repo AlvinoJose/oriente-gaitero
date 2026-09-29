@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none" role="img" aria-label="">
+  <!-- Decoración de pinceladas: naranja + turquesa (specs/specs.md §6) -->
+  <g fill="#F47B16">
+    <path d="M0 150 L210 108 L206 132 L4 174 Z"/>
+    <path d="M120 176 L470 120 L468 152 L124 200 Z"/>
+    <path d="M390 188 L760 128 L758 164 L394 200 Z"/>
+    <path d="M640 196 L1010 132 L1006 172 L644 200 Z"/>
+    <path d="M900 200 L1200 150 L1198 190 L904 200 Z"/>
+    <path d="M0 190 L140 168 L138 190 L2 200 Z" opacity="0.75"/>
+  </g>
+  <g fill="#08A9CC">
+    <path d="M40 168 L340 130 L336 158 L44 194 Z"/>
+    <path d="M300 192 L640 148 L636 180 L304 200 Z"/>
+    <path d="M560 200 L900 156 L896 190 L564 200 Z"/>
+    <path d="M840 200 L1160 164 L1156 196 L844 200 Z"/>
+    <path d="M0 200 L96 186 L94 200 Z" opacity="0.8"/>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Oriente Gaitero">
+  <!-- TODO: sustituir por fotografía real de la agrupación (specs §8) -->
+  <rect width="1200" height="630" fill="#111111"/>
+  <rect x="0" y="0" width="1200" height="16" fill="#f47b16"/>
+  <rect x="0" y="480" width="1200" height="150" fill="#4a2113"/>
+  <text x="600" y="300" font-family="Arial Black, Arial, sans-serif" font-size="76" fill="#ffffff" text-anchor="middle">ORIENTE GAITERO</text>
+  <text x="600" y="378" font-family="Arial, sans-serif" font-size="34" fill="#08a9cc" text-anchor="middle">Gaita zuliana con identidad, energía y espectáculo.</text>
+</svg>

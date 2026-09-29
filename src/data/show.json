@@ -1,0 +1,26 @@
+{
+  "_todo": "TODO (specs/specs.md §9): sustituir cada [PENDIENTE] con información confirmada por la agrupación. No inventar repertorio, duración ni requerimientos. El bloque home sale del prototipo.",
+  "description": "[PENDIENTE] Descripción breve del show: quiénes son, qué tocan y cómo es su puesta en escena.",
+  "repertoire": [
+    "[PENDIENTE] Canción o tema representativo 1",
+    "[PENDIENTE] Canción o tema representativo 2",
+    "[PENDIENTE] Tema navideño / gaita clásica"
+  ],
+  "duration": "[PENDIENTE] Duración aproximada por formato (ej. 45-60 min)",
+  "requirements": [
+    "[PENDIENTE] Espacio mínimo y escenario",
+    "[PENDIENTE] Sonido e iluminación",
+    "[PENDIENTE] Tiempo de montaje"
+  ],
+  "home": {
+    "title": "El Show",
+    "subtitle": "Música, tradición y mucha energía",
+    "lead": "Una experiencia en vivo que conecta con tus emociones y llena de alegría tu evento.",
+    "features": [
+      { "label": "Repertorio gaita tradicional e actual", "icon": "music" },
+      { "label": "Interacción con el público", "icon": "users" },
+      { "label": "Sonido e imagen profesional", "icon": "mic" },
+      { "label": "Adaptable a cualquier espacio", "icon": "check" }
+    ]
+  }
+}

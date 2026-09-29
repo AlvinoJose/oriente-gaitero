@@ -1,0 +1,21 @@
+---
+interface Props {
+  index: number;
+  title: string;
+  text: string;
+}
+
+const { index, title, text } = Astro.props;
+---
+
+<article
+  class="flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition hover:border-naranja/40"
+>
+  <span
+    class="flex h-9 w-9 items-center justify-center rounded-full bg-turquesa/15 text-xs font-bold text-turquesa-soft"
+  >
+    {String(index).padStart(2, '0')}
+  </span>
+  <h3 class="text-lg leading-tight">{title}</h3>
+  <p class="text-sm leading-relaxed text-white/60">{text}</p>
+</article>

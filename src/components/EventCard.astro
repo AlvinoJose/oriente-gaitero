@@ -1,0 +1,36 @@
+---
+interface Props {
+  id: string;
+  label: string;
+  description: string;
+  image: string;
+}
+
+const { id, label, description, image } = Astro.props;
+---
+
+<a
+  href={`/contacto?tipo=${id}`}
+  class="group relative block aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turquesa-soft"
+>
+  <img
+    src={image}
+    alt={`Evento ${label}`}
+    width="600"
+    height="450"
+    loading="lazy"
+    decoding="async"
+    class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+  />
+  <span
+    class="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/50 to-transparent"
+    aria-hidden="true"
+  ></span>
+  <span class="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-4">
+    <span class="font-display text-lg leading-none text-white">{label}</span>
+    <span class="text-xs text-white/70">{description}</span>
+    <span class="mt-2 text-[11px] font-bold uppercase tracking-wider text-naranja">
+      Cotizar este formato
+    </span>
+  </span>
+</a>

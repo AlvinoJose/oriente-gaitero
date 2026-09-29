@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+import { whatsappUrl } from '../lib/contact';
+---
+
+<a
+  href={whatsappUrl()}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="fixed inset-x-0 bottom-0 z-40 flex h-14 items-center justify-center gap-2 bg-naranja text-sm font-bold uppercase tracking-wider text-carbon shadow-[0_-4px_20px_rgba(0,0,0,0.4)] transition hover:bg-naranja-soft lg:hidden"
+>
+  <Icon name="whatsapp" class="h-5 w-5" />
+  WhatsApp
+</a>

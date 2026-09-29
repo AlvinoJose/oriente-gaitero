@@ -1,0 +1,26 @@
+[
+  {
+    "id": "gaitero",
+    "title": "FORMATO GAITERO",
+    "description": "Para espacios pequeños y celebraciones.",
+    "highlights": ["[PENDIENTE] duración", "[PENDIENTE] número de músicos", "[PENDIENTE] repertorio"]
+  },
+  {
+    "id": "show",
+    "title": "FORMATO SHOW",
+    "description": "Para eventos privados y corporativos.",
+    "highlights": ["[PENDIENTE] duración", "[PENDIENTE] número de músicos", "[PENDIENTE] repertorio"]
+  },
+  {
+    "id": "festival",
+    "title": "FORMATO FESTIVAL",
+    "description": "Para escenarios grandes.",
+    "highlights": ["[PENDIENTE] duración", "[PENDIENTE] número de músicos", "[PENDIENTE] requerimientos técnicos"]
+  },
+  {
+    "id": "decebrino",
+    "title": "FORMATO DECEMBRINO",
+    "description": "Para temporada navideña.",
+    "highlights": ["[PENDIENTE] duración", "[PENDIENTE] número de músicos", "[PENDIENTE] repertorio navideño"]
+  }
+]

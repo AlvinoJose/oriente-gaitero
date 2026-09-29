@@ -1,0 +1,8 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Imagen pendiente">
+  <rect width="800" height="800" fill="#1a1a1a"/>
+  <rect x="0" y="740" width="800" height="60" fill="#4a2113"/>
+  <circle cx="400" cy="360" r="96" fill="none" stroke="#08a9cc" stroke-width="8"/>
+  <path d="M368 316v88l76-44z" fill="#f47b16"/>
+  <text x="400" y="560" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="44" fill="#ffffff">IMAGEN PENDIENTE</text>
+  <text x="400" y="614" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#ffffff" opacity="0.6">Reemplazar en /public/media/</text>
+</svg>

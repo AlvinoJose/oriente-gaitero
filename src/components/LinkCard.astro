@@ -1,0 +1,37 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  label: string;
+  url: string;
+  icon: string;
+  pending?: boolean;
+}
+
+const { label, url, icon, pending = false } = Astro.props;
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  title={pending ? '[PENDIENTE] URL de ejemplo por confirmar' : undefined}
+  class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-base font-medium text-white/90 backdrop-blur transition hover:border-naranja/60 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turquesa-soft"
+>
+  <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-turquesa-soft transition group-hover:bg-naranja group-hover:text-carbon">
+    <Icon name={icon} class="h-5 w-5" />
+  </span>
+  <span class="flex-1">{label}</span>
+  <svg
+    class="h-4 w-4 text-white/40 transition group-hover:translate-x-1 group-hover:text-white/80"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M7 17 17 7M9 7h8v8"></path>
+  </svg>
+</a>

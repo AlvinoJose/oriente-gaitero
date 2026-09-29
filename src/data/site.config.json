@@ -1,0 +1,21 @@
+{
+  "_todo": "TODO (specs/specs.md §14-15): el número, la ciudad, el horario y el correo son EJEMPLO. El número va sin '+' y solo con dígitos. Este archivo es la fuente única: no duplicar el WhatsApp en componentes.",
+  "brand": "Oriente Gaitero",
+  "whatsapp": {
+    "number": "584122601450",
+    "numberSecondary": "584248526866",
+    "numberPending": false,
+    "message": "Hola Oriente Gaitero, escribo porque quiero contratarlos para un evento."
+  },
+  "email": "[PENDIENTE] booking@orientegaitero.com",
+  "city": "[PENDIENTE] Ciudad base (ej. Maracaibo, Venezuela)",
+  "hours": "[PENDIENTE] Horario de atención",
+  "listen": {
+    "url": "https://open.spotify.com/",
+    "pending": true,
+    "_todo": "TODO: URL de Spotify/Apple Music de la agrupación"
+  },
+  "privacyUrl": "/privacidad",
+  "termsUrl": "/terminos",
+  "copyright": "Oriente Gaitero"
+}

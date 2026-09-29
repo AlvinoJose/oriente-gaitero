@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import EventCard from '../components/EventCard.astro';
+import PrimaryButton from '../components/PrimaryButton.astro';
+
+import events from '../data/events.json';
+---
+
+<BaseLayout
+  title="Eventos | Oriente Gaitero"
+  description="Eventos privados, corporativos, festivales, navidad, restaurantes e institucionales con Oriente Gaitero."
+>
+  <PageHero
+    eyebrow="Eventos"
+    title="PARA CADA CELEBRACIÓN"
+    lead="Elige el tipo de evento que estás organizando: cada uno tiene un formato de gaita pensado para su espacio."
+  />
+
+  <section>
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+      <ul class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+        {
+          events.map((event) => (
+            <li>
+              <EventCard
+                id={event.id}
+                label={event.label}
+                description={event.description}
+                image={event.image}
+              />
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="mt-6 max-w-2xl text-xs leading-relaxed text-white/40">
+        No publicamos información privada de clientes sin su autorización.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <PrimaryButton href="/contacto">Solicitar cotización</PrimaryButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

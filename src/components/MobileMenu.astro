@@ -1,0 +1,89 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import PrimaryButton from './PrimaryButton.astro';
+import SocialLinks from './SocialLinks.astro';
+
+interface Item {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  items: Item[];
+  current: string;
+}
+
+const { items, current } = Astro.props;
+---
+
+<dialog
+  id="mobile-menu"
+  aria-label="Menú de navegación"
+  class="m-0 h-dvh max-h-none w-full max-w-none border-0 bg-carbon p-0 text-white backdrop:bg-black/70"
+>
+  <div class="flex h-full flex-col">
+    <div class="flex h-16 items-center justify-between border-b border-white/10 px-4 sm:px-6">
+      <a href="/" aria-label="Oriente Gaitero — Inicio"><Logo class="text-lg" /></a>
+      <button
+        type="button"
+        data-menu-close
+        class="flex h-11 w-11 items-center justify-center rounded-full text-white transition hover:bg-white/10"
+      >
+        <span class="sr-only">Cerrar menú</span>
+        <Icon name="close" class="h-6 w-6" />
+      </button>
+    </div>
+
+    <nav aria-label="Navegación móvil" class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+      <ul class="flex flex-col gap-1">
+        {
+          items.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={item.href === current ? 'page' : undefined}
+                class:list={[
+                  'flex min-h-12 items-center rounded-xl px-4 text-lg font-medium transition',
+                  item.href === current
+                    ? 'bg-naranja text-carbon'
+                    : 'text-white/80 hover:bg-white/10 hover:text-white',
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="border-t border-white/10 px-4 py-6 sm:px-6">
+      <PrimaryButton href="/contacto" class="w-full">Contratar</PrimaryButton>
+      <div class="mt-5 flex justify-center">
+        <SocialLinks />
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const menu = document.getElementById('mobile-menu') as HTMLDialogElement | null;
+  const openButton = document.querySelector<HTMLButtonElement>('[data-menu-open]');
+  const closeButton = document.querySelector<HTMLButtonElement>('[data-menu-close]');
+
+  const setOpen = (open: boolean) => openButton?.setAttribute('aria-expanded', String(open));
+
+  openButton?.addEventListener('click', () => {
+    menu?.showModal();
+    setOpen(true);
+  });
+
+  closeButton?.addEventListener('click', () => menu?.close());
+
+  menu?.addEventListener('close', () => setOpen(false));
+
+  menu?.addEventListener('click', (event) => {
+    if (event.target === menu) menu.close();
+  });
+</script>

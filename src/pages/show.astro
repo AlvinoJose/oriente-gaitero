@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoHero from '../components/VideoHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FormatCard from '../components/FormatCard.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import PrimaryButton from '../components/PrimaryButton.astro';
+
+import show from '../data/show.json';
+import formats from '../data/formats.json';
+---
+
+<BaseLayout
+  title="Show | Oriente Gaitero"
+  description="Conoce el show de Oriente Gaitero: formatos artísticos, repertorio, duración y requerimientos técnicos."
+>
+  <PageHero
+    eyebrow="Espectáculo"
+    title="EL SHOW"
+    lead={show.description}
+  />
+
+  <VideoHero />
+
+  <section class="border-b border-white/10">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+      <SectionHeading eyebrow="Formatos artísticos" title="UN FORMATO PARA CADA ESPACIO" />
+      <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          formats.map((format) => (
+            <li>
+              <FormatCard
+                title={format.title}
+                description={format.description}
+                highlights={format.highlights}
+              />
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-4 text-xs text-white/40">
+        Las características finales deben ser confirmadas por la agrupación.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-b border-white/10 bg-carbon-soft">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-20">
+      <div>
+        <SectionHeading eyebrow="Repertorio" title="QUÉ TOCAMOS" />
+        <ul class="mt-6 flex flex-col gap-3">
+          {
+            show.repertoire.map((item) => (
+              <li class="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/70">
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-naranja" aria-hidden="true" />
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+        <div class="mt-6 rounded-xl border border-turquesa/30 bg-turquesa/10 px-4 py-3">
+          <p class="text-xs font-semibold uppercase tracking-wider text-turquesa-soft">
+            Duración aproximada
+          </p>
+          <p class="mt-1 text-sm text-white/80">{show.duration}</p>
+        </div>
+      </div>
+
+      <div>
+        <SectionHeading eyebrow="Producción" title="REQUERIMIENTOS TÉCNICOS" />
+        <ul class="mt-6 flex flex-col gap-3">
+          {
+            show.requirements.map((item) => (
+              <li class="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/70">
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-turquesa" aria-hidden="true" />
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <PrimaryButton href="/contacto?tipo=corporativos">Contratar</PrimaryButton>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-white/10">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+      <SectionHeading eyebrow="En escena" title="FOTOS DEL SHOW" />
+      <div class="mt-8">
+        <GalleryGrid limit={4} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

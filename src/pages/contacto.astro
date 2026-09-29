@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import Icon from '../components/Icon.astro';
+
+import site from '../data/site.config.json';
+import events from '../data/events.json';
+import { emailUrl, isPlaceholder, whatsappSecondaryUrl, whatsappUrl } from '../lib/contact';
+
+const showEmail = !isPlaceholder(site.email);
+const showCity = !isPlaceholder(site.city);
+const showHours = !isPlaceholder(site.hours);
+const secondaryWhatsapp = whatsappSecondaryUrl();
+---
+
+<BaseLayout
+  title="Contacto | Oriente Gaitero"
+  description="Escríbele a Oriente Gaitero por WhatsApp o correo para cotizar tu evento."
+>
+  <PageHero
+    eyebrow="Contacto"
+    title="HABLEMOS DE TU EVENTO"
+    lead="Completa los datos y abrimos WhatsApp con el mensaje ya redactado."
+  />
+
+  <section>
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8 lg:py-20">
+      <div>
+        <h2 class="text-xl">Solicitar cotización</h2>
+
+        <form data-booking-form class="mt-6 flex flex-col gap-5">
+          <div class="grid gap-5 sm:grid-cols-2">
+            <label class="flex flex-col gap-2 text-sm font-medium text-white/80">
+              Nombre *
+              <input
+                type="text"
+                name="nombre"
+                required
+                autocomplete="name"
+                class="min-h-12 rounded-xl border border-white/15 bg-white/5 px-4 text-white outline-none transition focus:border-turquesa"
+              />
+            </label>
+
+            <label class="flex flex-col gap-2 text-sm font-medium text-white/80">
+              Tipo de evento *
+              <select
+                name="tipo"
+                required
+                class="min-h-12 rounded-xl border border-white/15 bg-carbon-soft px-4 text-white outline-none transition focus:border-turquesa"
+              >
+                <option value="" selected disabled>Selecciona una opción</option>
+                {
+                  events.map((event) => (
+                    <option value={event.id}>{event.label}</option>
+                  ))
+                }
+              </select>
+            </label>
+
+            <label class="flex flex-col gap-2 text-sm font-medium text-white/80">
+              Fecha estimada
+              <input
+                type="date"
+                name="fecha"
+                class="min-h-12 rounded-xl border border-white/15 bg-white/5 px-4 text-white outline-none transition focus:border-turquesa"
+              />
+            </label>
+
+            <label class="flex flex-col gap-2 text-sm font-medium text-white/80">
+              Ciudad o lugar
+              <input
+                type="text"
+                name="lugar"
+                autocomplete="address-level2"
+                class="min-h-12 rounded-xl border border-white/15 bg-white/5 px-4 text-white outline-none transition focus:border-turquesa"
+              />
+            </label>
+          </div>
+
+          <label class="flex flex-col gap-2 text-sm font-medium text-white/80">
+            Cuéntanos más *
+            <textarea
+              name="mensaje"
+              required
+              rows="5"
+              class="rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-turquesa"
+            ></textarea>
+          </label>
+
+          <!-- <fieldset class="flex flex-col gap-2">
+            <legend class="text-sm font-medium text-white/80">¿Cómo prefieres que respondamos?</legend>
+            <div class="flex flex-wrap gap-3">
+              <label
+                class="flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 text-sm text-white/80 transition has-[:checked]:border-naranja has-[:checked]:text-white"
+              >
+                <input type="radio" name="canal" value="whatsapp" checked class="accent-naranja" />
+                WhatsApp
+              </label>
+              <label
+                class="flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 text-sm text-white/80 transition has-[:checked]:border-naranja has-[:checked]:text-white"
+              >
+                <input type="radio" name="canal" value="email" class="accent-naranja" />
+                Correo
+              </label>
+            </div>
+          </fieldset> -->
+
+          <div class="flex flex-wrap items-center gap-4">
+            <button
+              type="submit"
+              class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-naranja px-6 text-sm font-bold uppercase tracking-wider text-carbon transition hover:bg-naranja-soft active:scale-[0.98]"
+            >
+              <Icon name="whatsapp" class="h-5 w-5" />
+              Enviar solicitud
+            </button>
+            <p data-form-status role="status" aria-live="polite" class="text-sm text-white/60"></p>
+          </div>
+
+          <p class="text-xs text-white/40">
+            Este formulario no envía tus datos a un servidor: arma el mensaje y lo abre en tu app
+            de WhatsApp o correo. Tus datos no se almacenan.
+          </p>
+        </form>
+      </div>
+
+      <aside class="flex flex-col gap-6">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <h2 class="text-sm font-semibold uppercase tracking-widest text-turquesa">
+            Escríbenos directo
+          </h2>
+          <a
+            href={whatsappUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-naranja px-5 text-sm font-bold uppercase tracking-wider text-carbon transition hover:bg-naranja-soft"
+          >
+            <Icon name="whatsapp" class="h-5 w-5" />
+            Escribir por WhatsApp
+          </a>
+
+          {
+            secondaryWhatsapp && (
+              <a
+                href={secondaryWhatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/30 px-5 text-sm font-bold uppercase tracking-wider text-white transition hover:border-naranja hover:text-naranja"
+              >
+                <Icon name="whatsapp" class="h-5 w-5" />
+                Segundo contacto
+              </a>
+            )
+          }
+
+          <ul class="mt-5 flex flex-col gap-3 text-sm text-white/70">
+            {
+              showEmail && (
+                <li class="flex items-center gap-3">
+                  <Icon name="mail" class="h-5 w-5 text-turquesa-soft" />
+                  <a href={emailUrl()} class="transition hover:text-white">
+                    {site.email}
+                  </a>
+                </li>
+              )
+            }
+            {
+              showCity && (
+                <li class="flex items-center gap-3">
+                  <Icon name="arrow" class="h-5 w-5 text-turquesa-soft" />
+                  {site.city}
+                </li>
+              )
+            }
+            {
+              showHours && (
+                <li class="flex items-center gap-3">
+                  <Icon name="play" class="h-5 w-5 text-turquesa-soft" />
+                  {site.hours}
+                </li>
+              )
+            }
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <h2 class="text-sm font-semibold uppercase tracking-widest text-turquesa">Redes</h2>
+          <div class="mt-4">
+            <SocialLinks />
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { whatsappUrl } from '../lib/contact';
+
+  const form = document.querySelector<HTMLFormElement>('[data-booking-form]');
+  const status = document.querySelector<HTMLElement>('[data-form-status]');
+  const tipo = form?.querySelector<HTMLSelectElement>('select[name="tipo"]');
+
+  const prefill = new URLSearchParams(window.location.search).get('tipo');
+  if (prefill && tipo && Array.from(tipo.options).some((option) => option.value === prefill)) {
+    tipo.value = prefill;
+  }
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const lines = [
+      'Hola Oriente Gaitero, quiero solicitar una cotización.',
+      '',
+      `Nombre: ${String(data.get('nombre') ?? '')}`,
+      `Tipo de evento: ${tipo?.selectedOptions[0]?.textContent ?? ''}`,
+      `Fecha: ${String(data.get('fecha') || 'por definir')}`,
+      `Ciudad o lugar: ${String(data.get('lugar') || 'por definir')}`,
+      '',
+      `${String(data.get('mensaje') ?? '')}`,
+    ];
+    const body = lines.join('\n');
+
+    // if (data.get('canal') === 'email') {
+    //   if (isPlaceholder(site.email)) {
+    //     if (status) status.textContent = 'El correo está pendiente de configurar. Usa WhatsApp.';
+    //     return;
+    //   }
+    //   if (status) status.textContent = 'Abriendo tu aplicación de correo…';
+    //   window.location.href = emailUrl('Cotización — Oriente Gaitero', body);
+    //   return;
+    // }
+
+    if (status) status.textContent = 'Abriendo WhatsApp…';
+    window.open(whatsappUrl(body), '_blank', 'noopener');
+  });
+</script>

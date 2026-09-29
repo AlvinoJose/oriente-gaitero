@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-label="Imagen pendiente">
+  <!-- TODO: sustituir por fotografía real vertical de la agrupación (specs §8) -->
+  <rect width="900" height="1200" fill="#1a1a1a"/>
+  <rect x="0" y="0" width="900" height="18" fill="#F47B16"/>
+  <rect x="0" y="1140" width="900" height="60" fill="#4A2113"/>
+  <circle cx="450" cy="520" r="120" fill="none" stroke="#08A9CC" stroke-width="10"/>
+  <path d="M410 464v112l96-56z" fill="#F47B16"/>
+  <text x="450" y="740" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="52" fill="#FFFFFF">FOTO PENDIENTE</text>
+  <text x="450" y="800" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#FFFFFF" opacity="0.6">Hero vertical · /public/media/hero.svg</text>
+</svg>

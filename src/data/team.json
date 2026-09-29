@@ -1,0 +1,9 @@
+{
+  "_todo": "TODO (§12): publicar integrantes y roles SOLO con autorización explícita (authorized: true). Si sigue en false, la sección no se renderiza. No publicar datos personales (§15).",
+  "authorized": false,
+  "members": [
+    { "name": "[PENDIENTE] Nombre", "role": "[PENDIENTE] Rol / instrumento" },
+    { "name": "[PENDIENTE] Nombre", "role": "[PENDIENTE] Rol / instrumento" },
+    { "name": "[PENDIENTE] Nombre", "role": "[PENDIENTE] Rol / instrumento" }
+  ]
+}

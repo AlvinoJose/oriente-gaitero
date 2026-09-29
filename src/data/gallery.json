@@ -1,0 +1,13 @@
+{
+  "_todo": "TODO (§13): sustituir cada placeholder por fotografías reales optimizadas (WebP/AVIF) en /public/media/. Mantener alt text descriptivo en español.",
+  "categories": ["En vivo", "Eventos", "Backstage", "Agrupación", "Público"],
+  "items": [
+    { "src": "/media/placeholder.svg", "alt": "[PENDIENTE] Foto en vivo 1", "category": "En vivo" },
+    { "src": "/media/placeholder.svg", "alt": "[PENDIENTE] Foto en vivo 2", "category": "En vivo" },
+    { "src": "/media/placeholder.svg", "alt": "[PENDIENTE] Foto de evento 1", "category": "Eventos" },
+    { "src": "/media/placeholder.svg", "alt": "[PENDIENTE] Foto de evento 2", "category": "Eventos" },
+    { "src": "/media/placeholder.svg", "alt": "[PENDIENTE] Foto backstage 1", "category": "Backstage" },
+    { "src": "/media/placeholder.svg", "alt": "[PENDIENTE] Foto de la agrupación 1", "category": "Agrupación" },
+    { "src": "/media/placeholder.svg", "alt": "[PENDIENTE] Foto del público 1", "category": "Público" }
+  ]
+}

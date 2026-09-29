@@ -1,0 +1,15 @@
+﻿---
+interface Props {
+  class?: string;
+}
+
+const { class: className = 'h-10 sm:h-12' } = Astro.props;
+---
+
+<img
+  src="/logo.svg"
+  alt="Oriente Gaitero"
+  width="340"
+  height="96"
+  class:list={['w-auto object-contain', className]}
+/>
