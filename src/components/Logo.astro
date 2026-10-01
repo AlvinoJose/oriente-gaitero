@@ -1,13 +1,14 @@
 ﻿---
 interface Props {
   class?: string;
+  negative?: boolean;
 }
 
-const { class: className = 'h-10 sm:h-12' } = Astro.props;
+const { class: className = 'h-10 sm:h-12', negative = false } = Astro.props;
 ---
 
 <img
-  src="/media/logo.png"
+  src={negative ? "/media/logo-neg.png" : "/media/logo.png"}
   alt="Oriente Gaitero"
   width="120"
   height="120"
