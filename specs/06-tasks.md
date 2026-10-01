@@ -37,4 +37,4 @@ enlaces rotos   → ninguno vivo a /eventos ni /galeria
 | DEV-02 | Secciones del home comentadas: "¿Quiénes somos?", "El Show", "Galería", "Testimonios" | Decidir si se reactivan (dejan imports sin usar → hints) |
 | DEV-03 | `site` = `https://example.com` en `astro.config.mjs` y `robots.txt` | Configurar dominio real (también en `astro.config.mjs → site`) |
 | DEV-04 | Contenido `[PENDIENTE]`: email, ciudad, horario, duración, testimonios, equipo | Rellenar con datos reales de la agrupación |
-| DEV-05 | Fotografía/video reales (hoy SVG placeholder en hero, galería y fotos) | Sustituir por material de la agrupación en formato WebP/AVIF + poster de video |
+| DEV-05 | Fotografía/video reales (hoy SVG placeholder en hero, galería y fotos) | Sustituir por material de la agrupación en formato WebP/AVIF + pegar la URL del video de YouTube en `src/data/video.json` (`youtube`) |

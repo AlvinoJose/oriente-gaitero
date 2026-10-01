@@ -133,8 +133,10 @@ Visual: Fotografía o video real de la agrupación.
 
 Título: **ASÍ SUENA ORIENTE GAITERO**
 
-Video de 20--40 segundos, con poster, controles y opción de pantalla
-completa.
+Video de 20--40 segundos incrustado desde YouTube (iframe
+`youtube-nocookie.com`, lazy loading, controles y pantalla completa del
+reproductor). URL en `src/data/video.json` campo `youtube`; si está vacía
+se muestra el póster con aviso PENDIENTE.
 
 ### Tipos de evento
 
@@ -260,7 +262,8 @@ No inventar ubicaciones, eventos, premios o clientes.
 ## 17. Performance
 
 Objetivos: - Carga rápida en móvil. - LCP optimizado. - WebP/AVIF. -
-Lazy loading. - Poster para video. - No autoplay con sonido. - JS
+Lazy loading. - Embed de YouTube con póster de reserva. - No autoplay con
+sonido. - JS
 mínimo. - Fuentes optimizadas. - Galería progresiva.
 
 ## 18. Accesibilidad

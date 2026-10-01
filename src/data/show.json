@@ -1,16 +1,16 @@
 {
   "_todo": "TODO (specs/specs.md §9): sustituir cada [PENDIENTE] con información confirmada por la agrupación. No inventar repertorio, duración ni requerimientos. El bloque home sale del prototipo.",
-  "description": "[PENDIENTE] Descripción breve del show: quiénes son, qué tocan y cómo es su puesta en escena.",
+  "description": "Te ofrecemos un espectáculo musical de calidad, con repertorio de gaita tradicional zuliana y tamboreras bailables, adaptado a cualquier espacio y con interacción con el público.",
   "repertoire": [
-    "[PENDIENTE] Canción o tema representativo 1",
-    "[PENDIENTE] Canción o tema representativo 2",
-    "[PENDIENTE] Tema navideño / gaita clásica"
+    "Gaita tradicional zuliana",
+    "Tamboreras bailables",
+    "Temas fusionados adaptados a la gaita zuliana"
   ],
-  "duration": "[PENDIENTE] Duración aproximada por formato (ej. 45-60 min)",
+  "duration": "Duración aproximada por set 45-60 minutos. Se pueden hacer 1 o 2 sets según el evento y la disponibilidad de tiempo.",
   "requirements": [
-    "[PENDIENTE] Espacio mínimo y escenario",
-    "[PENDIENTE] Sonido e iluminación",
-    "[PENDIENTE] Tiempo de montaje"
+    "Espacio mínimo y escenario",
+    "Sonido Profesional",
+    "Seguridad y logística según el evento"
   ],
   "home": {
     "title": "El Show",

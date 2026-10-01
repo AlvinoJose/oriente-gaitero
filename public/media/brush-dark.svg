@@ -1,7 +1,7 @@
 ﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-  <!-- Pincelada decorativa: trazo descendente con textura de pincel seco (specs/specs.md Â§6) -->
+  <!-- Variante oscura de la pincelada: para fondos claros/brillantes (CTA naranja) -->
   <defs>
-    <mask id="brush-dry" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="240">
+    <mask id="brush-dry-dark" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="240">
       <rect width="1200" height="240" fill="#ffffff" />
       <g fill="none" stroke="#000000" stroke-linecap="round">
         <path d="M90 176C340 132 700 106 1140 82" stroke-width="9" />
@@ -36,25 +36,25 @@
     </mask>
   </defs>
 
-  <g mask="url(#brush-dry)">
+  <g mask="url(#brush-dry-dark)">
     <path
-      fill="#F47B16"
+      fill="#4A2113"
       d="M40 152C150 122 230 94 340 76C440 62 520 72 606 64C710 54 830 50 946 60C1040 68 1112 70 1170 76C1104 98 1006 122 906 142C806 160 704 172 604 182C506 192 444 204 366 214C268 224 146 228 46 222C34 202 30 174 40 152Z"
     />
     <path
-      fill="#08A9CC"
+      fill="#111111"
       d="M122 214C300 196 400 186 520 182C700 176 900 164 1046 152C1104 147 1140 146 1152 144C1120 164 1040 186 940 202C820 220 640 234 500 240C340 246 200 244 132 238C122 232 118 222 122 214Z"
     />
   </g>
 
-  <g fill="#F47B16">
+  <g fill="#4A2113">
     <circle cx="22" cy="138" r="5" />
     <circle cx="8" cy="196" r="4" />
     <circle cx="66" cy="236" r="3.5" />
     <circle cx="1186" cy="64" r="4.5" />
     <circle cx="1196" cy="86" r="3" />
   </g>
-  <g fill="#08A9CC">
+  <g fill="#111111">
     <circle cx="112" cy="240" r="3.5" />
     <circle cx="1170" cy="134" r="3.5" />
     <circle cx="1156" cy="124" r="2" />

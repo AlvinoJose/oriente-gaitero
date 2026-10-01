@@ -3,12 +3,17 @@
   "items": [
     {
       "label": "Instagram",
-      "url": "https://www.instagram.com/",
+      "url": "https://www.instagram.com/orientegaitero/",
       "icon": "instagram",
-      "pending": true
+      "pending": false
     },
-    { "label": "TikTok", "url": "https://www.tiktok.com/", "icon": "tiktok", "pending": true },
-    { "label": "YouTube", "url": "https://www.youtube.com/", "icon": "youtube", "pending": true },
-    { "label": "WhatsApp", "url": "", "icon": "whatsapp" }
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/orientegaitero/",
+      "icon": "facebook",
+      "pending": false
+    },
+    { "label": "TikTok", "url": "https://www.tiktok.com/@oriente_gaitero", "icon": "tiktok", "pending": false },
+    { "label": "YouTube", "url": "https://www.youtube.com/@orientegaitero", "icon": "youtube", "pending": false }
   ]
 }

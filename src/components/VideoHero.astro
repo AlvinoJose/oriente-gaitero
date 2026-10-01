@@ -2,6 +2,15 @@
 import SectionHeading from './SectionHeading.astro';
 import Icon from './Icon.astro';
 import video from '../data/video.json';
+
+function youtubeId(url?: string): string | null {
+  const match = (url ?? '').match(
+    /(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/
+  );
+  return match ? match[1] : null;
+}
+
+const videoId = youtubeId(video.youtube);
 ---
 
 <section class="border-b border-white/10 bg-carbon-soft">
@@ -10,17 +19,18 @@ import video from '../data/video.json';
 
     <div class="mt-8 overflow-hidden rounded-3xl border border-white/10 bg-carbon">
       {
-        video.src ? (
-          <video
-            controls
-            preload="metadata"
-            playsinline
-            poster={video.poster}
-            class="aspect-video w-full bg-black"
-          >
-            <source src={video.src} />
-            Tu navegador no reproduce video HTML5.
-          </video>
+        videoId ? (
+          <div class="relative aspect-video w-full bg-black">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`}
+              title={video.title}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              class="absolute inset-0 h-full w-full border-0"
+            />
+          </div>
         ) : (
           <div class="relative aspect-video w-full">
             <img
@@ -37,7 +47,7 @@ import video from '../data/video.json';
                 <Icon name="play" class="ml-1 h-8 w-8" />
               </span>
               <p class="rounded-full bg-carbon/80 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-naranja">
-                [PENDIENTE] Video de 20-40 s
+                [PENDIENTE] URL de YouTube en video.json
               </p>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { socialLinks } from '../lib/contact';
 const items = socialLinks();
 ---
 
-<ul class="flex flex-wrap items-center gap-3" aria-label="Redes sociales">
+<ul class="mx-auto flex w-full max-w-md flex-col gap-3" aria-label="Redes sociales">
   {
     items.map((item) => (
       <li>
@@ -15,9 +15,31 @@ const items = socialLinks();
           rel="noopener noreferrer"
           aria-label={item.label}
           title={item.pending ? '[PENDIENTE] URL de ejemplo por confirmar' : undefined}
-          class="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition hover:border-naranja hover:bg-naranja hover:text-carbon"
+          class="group flex min-h-14 w-full items-center gap-4 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-white/90 backdrop-blur transition hover:border-naranja hover:bg-naranja hover:text-carbon focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turquesa-soft"
         >
-          <Icon name={item.icon} class="h-5 w-5" />
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/10 text-turquesa-soft transition group-hover:border-carbon/20 group-hover:bg-carbon group-hover:text-naranja">
+            <Icon name={item.icon} class="h-5 w-5" />
+          </span>
+          <span class="flex-1 text-left text-sm font-semibold uppercase tracking-wider">
+            {item.label}
+          </span>
+          {item.pending && (
+            <span class="rounded-full border border-naranja/30 bg-naranja/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-naranja-soft transition group-hover:border-carbon/30 group-hover:bg-carbon/15 group-hover:text-carbon">
+              pendiente
+            </span>
+          )}
+          <svg
+            class="h-4 w-4 shrink-0 text-white/40 transition group-hover:translate-x-1 group-hover:text-carbon/70"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 17 17 7M9 7h8v8" />
+          </svg>
         </a>
       </li>
     ))

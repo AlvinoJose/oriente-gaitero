@@ -12,6 +12,9 @@ const showEmail = !isPlaceholder(site.email);
 const showCity = !isPlaceholder(site.city);
 const showHours = !isPlaceholder(site.hours);
 const secondaryWhatsapp = whatsappSecondaryUrl();
+
+const now = new Date();
+const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 ---
 
 <BaseLayout
@@ -63,12 +66,13 @@ const secondaryWhatsapp = whatsappSecondaryUrl();
               <input
                 type="date"
                 name="fecha"
+                min={today}
                 class="min-h-12 rounded-xl border border-white/15 bg-white/5 px-4 text-white outline-none transition focus:border-turquesa"
               />
             </label>
 
             <label class="flex flex-col gap-2 text-sm font-medium text-white/80">
-              Ciudad o lugar
+              Lugar
               <input
                 type="text"
                 name="lugar"
@@ -86,25 +90,7 @@ const secondaryWhatsapp = whatsappSecondaryUrl();
               rows="5"
               class="rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-turquesa"
             ></textarea>
-          </label>
-
-          <!-- <fieldset class="flex flex-col gap-2">
-            <legend class="text-sm font-medium text-white/80">¿Cómo prefieres que respondamos?</legend>
-            <div class="flex flex-wrap gap-3">
-              <label
-                class="flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 text-sm text-white/80 transition has-[:checked]:border-naranja has-[:checked]:text-white"
-              >
-                <input type="radio" name="canal" value="whatsapp" checked class="accent-naranja" />
-                WhatsApp
-              </label>
-              <label
-                class="flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 text-sm text-white/80 transition has-[:checked]:border-naranja has-[:checked]:text-white"
-              >
-                <input type="radio" name="canal" value="email" class="accent-naranja" />
-                Correo
-              </label>
-            </div>
-          </fieldset> -->
+          </label>         
 
           <div class="flex flex-wrap items-center gap-4">
             <button
@@ -118,8 +104,7 @@ const secondaryWhatsapp = whatsappSecondaryUrl();
           </div>
 
           <p class="text-xs text-white/40">
-            Este formulario no envía tus datos a un servidor: arma el mensaje y lo abre en tu app
-            de WhatsApp o correo. Tus datos no se almacenan.
+           Solicita una cotización y te responderemos a la brevedad. si deseas, también puedes escribirnos directamente por WhatsApp o por nuestras redes sociales.
           </p>
         </form>
       </div>
@@ -200,6 +185,12 @@ const secondaryWhatsapp = whatsappSecondaryUrl();
   const form = document.querySelector<HTMLFormElement>('[data-booking-form]');
   const status = document.querySelector<HTMLElement>('[data-form-status]');
   const tipo = form?.querySelector<HTMLSelectElement>('select[name="tipo"]');
+  const fecha = form?.querySelector<HTMLInputElement>('input[name="fecha"]');
+
+  if (fecha) {
+    const d = new Date();
+    fecha.min = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }
 
   const prefill = new URLSearchParams(window.location.search).get('tipo');
   if (prefill && tipo && Array.from(tipo.options).some((option) => option.value === prefill)) {

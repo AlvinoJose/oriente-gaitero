@@ -1,7 +1,7 @@
-{
-  "_todo": "TODO (specs/specs.md §8): subir el video real de 20-40 s a /public/media/ y completar src. Mientras src esté vacío se muestra el póster con aviso.",
-  "src": "",
+﻿{
+  "_todo": "Pega la URL del video de YouTube (watch?v=..., youtu.be/... o shorts/...). Si `youtube` está vacío se muestra el póster con aviso PENDIENTE.",
+  "youtube": "",
   "poster": "/media/placeholder.svg",
   "title": "ASÍ SUENA ORIENTE GAITERO",
-  "caption": "20-40 segundos de show en vivo."
+  "caption": "Muestra de nuestro show en vivo."
 }

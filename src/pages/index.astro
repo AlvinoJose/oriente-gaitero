@@ -52,12 +52,12 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
       class="absolute inset-0 bg-gradient-to-b from-carbon/85 via-carbon/40 to-carbon"
       aria-hidden="true"
     ></div>
-    <img
+    <!-- <img
       src="/media/brush.svg"
       alt=""
       aria-hidden="true"
       class="pointer-events-none absolute inset-x-0 bottom-0 h-20 w-full object-fill opacity-90 sm:h-28"
-    />
+    /> -->
 
     <div
       class="relative mx-auto flex min-h-[92svh] max-w-6xl flex-col justify-end gap-7 px-4 pb-16 pt-28 sm:px-6 lg:px-8 lg:pb-20"
@@ -68,7 +68,7 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
         <span class="block text-white">Y ESPECTÁCULO</span>
       </h1>
 
-      <ul class="grid grid-cols-4 gap-1.5">
+      <!-- <ul class="grid grid-cols-4 gap-1.5">
         {
           heroCategories.map((category) => (
             <li>
@@ -86,7 +86,7 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
             </li>
           ))
         }
-      </ul>
+      </ul> -->
 
       <div class="flex justify-center w-full flex-col gap-3 sm:max-w-sm">
         <PrimaryButton href="/contacto" class="w-full">
@@ -177,7 +177,7 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
   </div>
 
   <!-- ¿Quiénes somos? (prototipo 2) -->
-  <!-- <section class="relative overflow-hidden border-b border-white/10">
+  <section class="relative overflow-hidden border-b border-white/10">
     <div class="mx-auto max-w-6xl px-4 pb-24 pt-14 sm:px-6 lg:px-8 lg:pb-28 lg:pt-20">
       <img
         src="/media/photo.svg"
@@ -193,7 +193,7 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
       <p class="mt-3 text-lg font-semibold text-naranja">{about.headline}</p>
       <p class="mt-4 max-w-2xl leading-relaxed text-white/70">{about.intro}</p>
 
-      <ul class="mt-9 grid grid-cols-3 gap-3">
+      <!-- <ul class="mt-9 grid grid-cols-3 gap-3">
         {
           about.pillars.map((pillar) => (
             <li class="flex flex-col items-center gap-3 text-center">
@@ -206,26 +206,12 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
             </li>
           ))
         }
-      </ul>
-
-      <div class="mt-9">
-        <SecondaryButton href="/nosotros">
-          <Icon name="arrow" class="h-4 w-4" />
-          Conoce más
-        </SecondaryButton>
-      </div>
+      </ul> -->
     </div>
-
-    <img
-      src="/media/brush.svg"
-      alt=""
-      aria-hidden="true"
-      class="pointer-events-none absolute inset-x-0 bottom-0 h-16 w-full object-fill opacity-90 sm:h-24"
-    />
-  </section> -->
+  </section>
 
   <!-- Tipos de evento -->
-  <section class="border-b border-white/10">
+  <!-- <section class="border-b border-white/10">
     <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
       <SectionHeading
         eyebrow="Tipos de evento"
@@ -247,10 +233,10 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
         }
       </ul>
     </div>
-  </section>
+  </section> -->
 
   <!-- Propuesta de valor -->
-  <section class="border-b border-white/10 bg-carbon-soft">
+  <!-- <section class="border-b border-white/10 bg-carbon-soft">
     <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
       <SectionHeading eyebrow="Propuesta" title="MÚSICA QUE CONECTA" />
       <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -263,7 +249,7 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
         }
       </ul>
     </div>
-  </section>
+  </section> -->
 
   <!-- Galería -->
   <!-- <section class="border-b border-white/10">
@@ -336,16 +322,16 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
         </a>
       </div>
     </div>
-    <img
-      src="/media/brush.svg"
+    <!-- <img
+      src="/media/brush-dark.svg"
       alt=""
       aria-hidden="true"
       class="pointer-events-none absolute inset-x-0 bottom-0 h-16 w-full object-fill opacity-40 sm:h-24"
-    />
+    /> -->
   </section>
 
   <!-- FAQ -->
-  <section class="border-b border-white/10">
+  <!-- <section class="border-b border-white/10">
     <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
       <SectionHeading eyebrow="Preguntas" title="PREGUNTAS FRECUENTES" />
       <div class="mt-8 divide-y divide-white/10 border-y border-white/10">
@@ -372,5 +358,5 @@ const isPending = (value: string) => value.includes('[PENDIENTE]');
         <SecondaryButton href="/nosotros">Conócenos</SecondaryButton>
       </div>
     </div>
-  </section>
+  </section> -->
 </BaseLayout>
