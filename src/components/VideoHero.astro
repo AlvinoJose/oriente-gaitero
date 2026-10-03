@@ -11,26 +11,52 @@ function youtubeId(url?: string): string | null {
 }
 
 const videoId = youtubeId(video.youtube);
+const poster = videoId
+  ? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+  : video.poster;
 ---
 
-<section class="border-b border-white/10 bg-carbon-soft">
+<section class="section-soft border-b border-white/10">
   <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-    <SectionHeading eyebrow="Video" title={video.title} subtitle={video.caption} />
+    <div data-reveal>
+      <SectionHeading eyebrow="Video" title={video.title} subtitle={video.caption} />
+    </div>
 
-    <div class="mt-8 overflow-hidden rounded-3xl border border-white/10 bg-carbon">
+    <!-- Reproductor con UI propia (spec UI/UX v2 §2.3): póster + play, iframe solo al abrir -->
+    <div
+      class="mt-8 overflow-hidden rounded-3xl border border-white/10 bg-carbon"
+      data-reveal
+      style="--reveal-delay: 100ms"
+    >
       {
         videoId ? (
-          <div class="relative aspect-video w-full bg-black">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`}
-              title={video.title}
+          <button
+            type="button"
+            data-video-open
+            data-video-id={videoId}
+            data-video-title={video.title}
+            aria-label={`Reproducir video: ${video.title}`}
+            class="group relative block aspect-video w-full overflow-hidden"
+          >
+            <img
+              src={poster}
+              alt=""
+              width="1280"
+              height="720"
               loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              class="absolute inset-0 h-full w-full border-0"
+              decoding="async"
+              data-poster
+              class="h-full w-full object-cover brightness-75 transition duration-300 group-hover:brightness-90"
             />
-          </div>
+            <span class="absolute inset-0 flex items-center justify-center">
+              <span class="flex h-16 w-16 items-center justify-center rounded-full bg-naranja text-carbon shadow-[0_0_32px_rgba(246,125,31,0.55)] transition duration-300 group-hover:scale-110 group-hover:shadow-[0_0_48px_rgba(246,125,31,0.85)]">
+                <Icon name="play" class="ml-1 h-8 w-8" />
+              </span>
+            </span>
+            <span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 text-left text-xs font-semibold uppercase tracking-wider text-white/90">
+              Reproducir video
+            </span>
+          </button>
         ) : (
           <div class="relative aspect-video w-full">
             <img
@@ -56,3 +82,69 @@ const videoId = youtubeId(video.youtube);
     </div>
   </div>
 </section>
+
+<dialog
+  data-video-modal
+  aria-label="Reproductor de video de Oriente Gaitero"
+  class="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none border-0 bg-black/95 p-0 text-white backdrop:bg-black/95"
+>
+  <div class="flex h-full flex-col">
+    <div class="flex items-center justify-end p-3">
+      <button
+        type="button"
+        data-video-close
+        class="flex h-11 w-11 items-center justify-center rounded-full text-white transition hover:bg-white/10"
+      >
+        <span class="sr-only">Cerrar video</span>
+        <Icon name="close" class="h-6 w-6" />
+      </button>
+    </div>
+    <div class="flex flex-1 items-center justify-center px-3 pb-8">
+      <div data-video-frame class="aspect-video w-full max-w-5xl overflow-hidden rounded-xl bg-black"></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const openButton = document.querySelector<HTMLButtonElement>('[data-video-open]');
+  const modal = document.querySelector<HTMLDialogElement>('[data-video-modal]');
+  const frame = modal?.querySelector<HTMLElement>('[data-video-frame]');
+
+  const videoId = openButton?.dataset.videoId;
+  const poster = openButton?.querySelector<HTMLImageElement>('[data-poster]');
+
+  poster?.addEventListener('error', () => {
+    if (videoId && !poster.dataset.fallback) {
+      poster.dataset.fallback = '1';
+      poster.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+    }
+  });
+
+  const destroyFrame = () => frame?.replaceChildren();
+
+  openButton?.addEventListener('click', () => {
+    const id = openButton.dataset.videoId;
+    if (!id || !frame || !modal) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+    iframe.title = openButton.dataset.videoTitle ?? 'Video de Oriente Gaitero';
+    iframe.allow =
+      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.className = 'h-full w-full border-0';
+
+    frame.replaceChildren(iframe);
+    modal.showModal();
+  });
+
+  modal?.querySelector('[data-video-close]')?.addEventListener('click', () => modal.close());
+
+  modal?.addEventListener('click', (event) => {
+    if (event.target === modal) modal.close();
+  });
+
+  // Diferir la carga: el iframe solo existe mientras el modal está abierto (spec §4)
+  modal?.addEventListener('close', destroyFrame);
+  modal?.addEventListener('cancel', destroyFrame);
+</script>

@@ -2,21 +2,25 @@
   {
     "id": "gaita",
     "title": "Gaita zuliana",
-    "text": "Identidad zuliana en cada canción: tambora, furro y verso."
+    "text": "Identidad zuliana en cada canción: tambora, furro y verso.",
+    "icon": "music"
   },
   {
     "id": "show",
     "title": "Show en vivo",
-    "text": "Energía de escenario, interacción con el público y repertorio que conecta."
+    "text": "Energía de escenario, interacción con el público y repertorio que conecta.",
+    "icon": "mic"
   },
   {
     "id": "formatos",
     "title": "Formatos flexibles",
-    "text": "De la celebración íntima al escenario grande: nos adaptamos a tu espacio."
+    "text": "De la celebración íntima al escenario grande: nos adaptamos a tu espacio.",
+    "icon": "briefcase"
   },
   {
     "id": "imagen",
     "title": "Imagen profesional",
-    "text": "Presentación cuidada, puntual y lista para tu evento."
+    "text": "Presentación cuidada, puntual y lista para tu evento.",
+    "icon": "star"
   }
 ]

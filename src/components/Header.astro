@@ -57,7 +57,7 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
 <script>
   const header = document.querySelector<HTMLElement>('[data-header]');
 
-  const update = () => header?.classList.toggle('header-compact', window.scrollY > 24);
+  const update = () => header?.classList.toggle('header-compact', window.scrollY > 50);
 
   update();
   window.addEventListener('scroll', update, { passive: true });

@@ -13,7 +13,7 @@
 
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-display: 'Archivo Black', 'Arial Black', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Montserrat', 'Arial Black', ui-sans-serif, system-ui, sans-serif;
 
   --breakpoint-xs: 360px;
   --breakpoint-sm: 390px;
@@ -31,6 +31,9 @@
 
   body {
     background-color: var(--color-carbon);
+    background-image:
+      radial-gradient(58rem 40rem at 0% 0%, rgb(0 150 238 / 0.05), transparent 62%),
+      radial-gradient(58rem 40rem at 100% 100%, rgb(0 150 238 / 0.05), transparent 62%);
     color: #ffffff;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -46,24 +49,25 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-weight: 900;
+    letter-spacing: -0.02em;
   }
 
-  /* Header transparente al inicio y compacto al hacer scroll (specs §8) */
+  /* Header transparente al inicio y con glassmorphism al hacer scroll (specs §8, spec UI/UX v2 §2.6) */
   [data-header] {
     transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease;
+      background-color 0.3s ease,
+      border-color 0.3s ease;
   }
 
   [data-header] > div {
-    transition: height 0.2s ease;
+    transition: height 0.3s ease;
   }
 
   [data-header].header-compact {
-    background-color: rgb(17 17 17 / 0.92);
-    backdrop-filter: blur(10px);
+    background-color: rgb(17 17 17 / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom-color: rgb(255 255 255 / 0.1);
   }
 
@@ -97,6 +101,60 @@
   }
 }
 
+@layer components {
+  /* Glassmorphism (spec UI/UX v2 §1) */
+  .glass {
+    background-color: rgb(17 17 17 / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgb(255 255 255 / 0.1);
+  }
+
+  /* Sección con fondo ligeramente más claro + mesh gradient de profundidad */
+  .section-soft {
+    background-color: var(--color-carbon-soft);
+    background-image:
+      radial-gradient(50rem 34rem at 0% 0%, rgb(0 150 238 / 0.05), transparent 62%),
+      radial-gradient(50rem 34rem at 100% 100%, rgb(0 150 238 / 0.05), transparent 62%);
+  }
+
+  /* Microinteracciones (spec UI/UX v2 §3) */
+  .btn-glow {
+    transition: all 0.3s ease;
+  }
+
+  .btn-glow:hover,
+  .btn-glow:focus-visible {
+    transform: scale(1.02);
+    box-shadow: 0 0 24px rgb(246 125 31 / 0.35);
+  }
+
+  .card-glow {
+    transition: all 0.3s ease;
+  }
+
+  .card-glow:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 28px rgb(0 150 238 / 0.18);
+    border-color: rgb(0 150 238 / 0.45);
+  }
+
+  /* Scroll reveal (spec UI/UX v2 §3): solo aplica si .reveal-on está en <html> */
+  .reveal-on [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal-on [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -108,5 +166,16 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .btn-glow:hover,
+  .btn-glow:focus-visible,
+  .card-glow:hover {
+    transform: none;
+  }
+
+  .reveal-on [data-reveal] {
+    opacity: 1;
+    transform: none;
   }
 }

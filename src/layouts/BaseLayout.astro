@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-import '@fontsource/archivo-black';
+import '@fontsource/montserrat/latin-900.css';
+import '@fontsource/montserrat/latin-900-italic.css';
 import '@fontsource-variable/inter';
 
 import Header from '../components/Header.astro';
@@ -82,6 +83,11 @@ const jsonLd = [...baseSchema, ...extraSchema];
     <meta name="theme-color" content="#111111" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('reveal-on');
+      }
+    </script>
   </head>
   <body class="min-h-dvh bg-carbon text-white antialiased">
     <a
@@ -101,5 +107,21 @@ const jsonLd = [...baseSchema, ...extraSchema];
     </div>
 
     <StickyBookingCTA />
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -4% 0px' }
+      );
+
+      document.querySelectorAll('[data-reveal]').forEach((element) => observer.observe(element));
+    </script>
   </body>
 </html>

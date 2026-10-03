@@ -1,21 +1,36 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   index: number;
   title: string;
   text: string;
+  icon?: string;
+  class?: string;
 }
 
-const { index, title, text } = Astro.props;
+const { index, title, text, icon, class: className = '' } = Astro.props;
 ---
 
 <article
-  class="flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition hover:border-naranja/40"
+  class:list={[
+    'card-glow flex h-full flex-col gap-3 rounded-3xl border border-white/10 bg-[#1c1c1c] p-5',
+    className,
+  ]}
 >
   <span
-    class="flex h-9 w-9 items-center justify-center rounded-full bg-turquesa/15 text-xs font-bold text-turquesa-soft"
+    class="flex h-11 w-11 items-center justify-center rounded-full bg-turquesa/15 text-turquesa-soft"
   >
-    {String(index).padStart(2, '0')}
+    {
+      icon ? (
+        <Icon name={icon} class="h-6 w-6" />
+      ) : (
+        <span class="text-xs font-bold">{String(index).padStart(2, '0')}</span>
+      )
+    }
   </span>
-  <h3 class="text-lg leading-tight">{title}</h3>
-  <p class="text-sm leading-relaxed text-white/60">{text}</p>
+  <div class="mt-auto flex flex-col gap-2">
+    <h3 class="text-lg leading-tight">{title}</h3>
+    <p class="text-sm leading-relaxed text-white/60">{text}</p>
+  </div>
 </article>
